@@ -228,7 +228,18 @@
  //    console.log(index);
  // }
  // 同时输出数组的内容和索引：我们用entries()这个实例方法，配合我们的for…of循环
+ // let arr=['lj','梁娟','太极公司'];
+ // for(let [index,val] of arr.entries()){
+ //     console.log(index+':'+val);
+ // }
+
+ //entries方法 切分数组
  let arr=['lj','梁娟','太极公司'];
- for(let [index,val] of arr.entries()){
-     console.log(index+':'+val);
- }
+ let list = arr.entries();
+ console.log(list);
+ console.log(list.next().value);
+ console.log('******************')
+ console.log(list.next().value);
+ console.log('&&&&&&&&&&&&&&&&&&&')
+ console.log(list.next().value);
+ console.log('$$$$$$$$$$$$$$$$$$$')
