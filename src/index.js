@@ -57,7 +57,7 @@
 // ({foo}={foo:'lj'});
 // console.log(foo);
 // const a = "Lj";
-// var a = "梁娟";
+// // var a = "梁娟";
 // console.log(a);
 
 // 二、变量的解构赋值
@@ -89,15 +89,15 @@
 
 // 声明两个数组arr1和arr2，然后我们把arr1赋值给arr2，然后我们改变arr2的值，发现arr1的值也改变了
 // let arr1=['www','taiji','com'];
-// // let arr2 = arr1;
-// let arr2 = [...arr1];
+// let arr2 = arr1;
+// // let arr2 = [...arr1];
 // console.log(arr2);
 // arr2.push('lj');
 // console.log(arr2);
 // console.log(arr1);
 
 // rest ...
-// function taiji(second,a,...arg){
+// function taiji(second,a,b,...arg){
 //     console.log(arg.length);
 //
 // }
@@ -105,12 +105,12 @@
 
 // 5.字符串模板
 //ES5字符串拼接的例子
-// let lj='梁娟';
-// let blog = '非常高兴你能看到这篇文章，我是你的老师'+lj+'。这节课我们学习字符串模版。';
+// let b='B';
+// let blog = 'A'+b+'C';
 // document.write(blog);
 // ES6写法
-// let lj='梁娟';
-// let blog = `非常高兴你能看到这篇文章，我是你的老师${lj},这节课我们学习字符串模版。`;
+// let b='B';
+// let blog = `A,${b},C`;
 // document.write(blog);
 
 // 字符串模板对运算的支持
@@ -121,16 +121,16 @@
 
 //字符串查找
 // ES5的写法
-// let lj='梁娟';
-// let blog = '非常高兴你能看到这篇文章，我是你的老师梁娟。这节课我们学习字符串模版。';
-// document.write(blog.indexOf(lj)>0);
+// let a='I';
+// let blog = 'ABCDE，FHIJK,LMNOP。';
+// document.write(blog.indexOf(a)>0); //blog.indexOf(a)>0:'I'的索引是否大于0
 // ES6直接用includes就可以判断，不再返回索引值。
-// document.write(blog.includes(lj));
+// document.write(blog.includes(a));
 // // 判断开头是否存在
-// document.write(blog.startsWith(lj));
+// document.write(blog.startsWith(a));
 // 判断结尾是否存在：
-// document.write(blog.endsWith(lj));
-//  这是网页中输出了20（是指lj所在字符串的下表标位置），我们还要自己判断。
+// document.write(blog.endsWith(a));
+//  这是网页中输出了20（是指a所在字符串的下表标位置），我们还要自己判断。
 // import {name} from './temp';
 // console.log(name);
 
@@ -145,7 +145,7 @@
  // 如何判断是否是数字
  // let a = 11/4;
  // console.log(Number.isFinite(a));
- // console.log(Number.isFinite('lj'));
+ // console.log(Number.isFinite('A'));
  // console.log(Number.isFinite(NaN));
  // console.log(Number.isFinite(undefined));
 
@@ -166,6 +166,8 @@
  // console.log(Number.isNaN(100+'2a'));
 
  // console.log(Number.isNaN(parseInt("abc")));
+ // console.log(parseInt("abc"));
+
  //Number.isInteger 判断是否为整数
  // let a= 918.1
  // console.log(Number.isInteger(a));
@@ -197,7 +199,7 @@
  // console.log(arr);
 
  // Array.of方法
- // let arr = Array.of(3,4,5,6);
+ // let arr = Array.of(1,3,4,5,6);
  // console.log(arr);
 
  //find() 实例方法（查找）
@@ -208,7 +210,7 @@
  //
  // }))
 
- // fill填充
+ // // fill填充
  // let arr=['lj','梁娟','太极公司','你好'];
  // arr.fill('web',1,4);
  // console.log(arr);
@@ -216,14 +218,14 @@
 
  //数组循环
  //数组循环
- // let arr=['lj','梁娟','太极公司'];
+ // let arr=['A','B','C'];
  // for (let item of arr){
  //    console.log(item);
  // }
 
  // for…of数组索引
  // //数组循环
- // let arr=['lj','梁娟','太极公司'];
+ // let arr=['A','B','C'];
  // for (let index of arr.keys()){
  //    console.log(index);
  // }
@@ -234,12 +236,355 @@
  // }
 
  //entries方法 切分数组
- let arr=['lj','梁娟','太极公司'];
- let list = arr.entries();
- console.log(list);
- console.log(list.next().value);
- console.log('******************')
- console.log(list.next().value);
- console.log('&&&&&&&&&&&&&&&&&&&')
- console.log(list.next().value);
- console.log('$$$$$$$$$$$$$$$$$$$')
+ // let arr=['A','B','C'];
+ // let list = arr.entries();
+ // console.log(list);
+ // console.log(list.next().value);
+ // console.log('******************')
+ // console.log(list.next().value);
+ // console.log('&&&&&&&&&&&&&&&&&&&')
+ // console.log(list.next().value);
+ // console.log('$$$$$$$$$$$$$$$$$$$')
+
+ //ES6箭头函数
+ // 首先是ES5中的写法
+ // function add(a,b=1){  //ES5中没有默认值的操作
+ //     // 'use strict'
+ //     return a+b;
+ // }
+ // console.log(add(1));
+ // 默认值  es6箭头函数
+ // console.log(add.length);
+ // var add=(a,b=1) => a+b;
+ // console.log(add(1));
+
+ // 此处获得的参数的个数是必须传递参数的个数，如果有默认自则不计入其内
+ // 有严谨模式‘use strict’函数有默认值的时候是不行的
+ // function add(a,b=1){
+ //     // 'use strict'
+ //     return a+b;
+ // }
+ // console.log(add.length);
+ //这时控制台打印出了2，但是如果我们去掉严谨模式，并给第二个参数加上默认值的话，这时候add.length的值就变成了1， 也就是说它得到的是必须传入的参数。
+ // // 此处获得的参数的个数是必须传递参数的个数，如果有默认自则不计入其内
+
+ //对象的函数解构 json（对象的函数解构  在前后端分离时，后端经常返回来JSON格式的数据，前端的美好愿望是直接把这个JSON格式数据当作参数，传递到函数内部进行处理。 ）
+ // let json = {
+ //     a:'lj',
+ //     b:'梁娟'
+ // }
+ // function fun({a,b='web'}){
+ //     console.log(a,b);
+ // }
+ // fun(json);
+
+ //数组解构
+ // let arr = ['lj','梁娟','太极'];
+ // function fun(a,b,c,d){
+ //  console.log(a,b,c,d)
+ // }
+ // fun(...arr);
+
+ // in的用法
+ // let obj ={
+ //     a:'lj',
+ //     b:'梁娟'
+ // }
+ // // c指key
+ // console.log('c' in obj);
+
+ // 数组判断
+ // let arr=[,,,];
+ // console.log(arr.length); //3（数组下标最大的数）
+ // console.log(0 in arr);  // false
+ // 注意：这里的0指的是数组下标位置是否为空。
+ // let arr1=['lj','梁娟'];
+ // console.log(0 in arr1);  // true（数组下标坐在位置是否为空，否？true）
+ // console.log(0 in arr);
+ // 数组遍历 forEach
+ // let arr = ['lj','梁娟','太极'];
+ // arr.forEach((val,index)=>console.log(index,val));
+ // 数组遍历 filter（利用过滤条件进行循环输出）
+ // let arr = ['lj','梁娟','太极'];
+ // arr.filter(x => console.log(x));
+ // 数组遍历 some
+ // let arr = ['lj','梁娟','太极'];
+ // arr.some(x => console.log(x));
+ // 数组遍历 map替换
+ // let arr = ['lj','梁娟','太极'];
+ // console.log(arr.map(x=>'web'));
+ // 数组转换成字符串
+ // let arr = ['lj','梁娟','太极'];
+ // console.log(arr.toString());
+ // console.log(arr.join('|'));
+
+ // 对象
+ // 对象赋值
+ // let name = 'lj';
+ // let skill = 'web';
+ // var obj = {name,skill};
+ // console.log(obj)
+
+ // // key值的构建
+ // let key = "skill"
+ // var obj ={
+ //     [key]:'web'
+ // }
+ // console.log(obj);
+
+ // //自定义对象方法
+ // let obj = {
+ //     add:function(a,b){
+ //         return a+b;
+ //     },
+ //        subt:function(a,b) {
+ //            return a-b;
+ // }
+ // }
+ // console.log(obj.add(1,2))
+ // console.log(obj.subt(3,4))
+
+ // Object.is( ) 对象比较
+ // is()
+ // let obj1={name:'lj'};
+ // let obj2={name:'lj'};
+ // console.log(obj1.name===obj2.name);
+ // console.log(Object.is(obj1.name,obj2.name));
+ // ===同值相等 is严格相等
+ // console.log(+0===-0);
+ // console.log(NaN===NaN);
+ // console.log(Object.is(+0,-0));
+ // console.log(Object.is(NaN,NaN));
+
+ //assign(对象合并)
+ // let a={a:'lj'};
+ // let b={b:'梁娟'};
+ // let c={c:'web'};
+ // let d=Object.assign(a,b,c);
+ // console.log(d);
+
+ // Symbol(新型数据类型)  ES6新增的
+ // let a = new String;
+ // let b = new Number;
+ // let c = new Boolean;
+ // let d = new Array;
+ // let e = new Object;
+ // let f = Symbol();
+ // console.log(typeof(f));
+
+ // Symbol的打印
+ // let lj = Symbol('梁娟');
+ // console.log(lj);
+ // console.log(lj.toString());
+
+ // Symbol在对象中的应用
+ // let lj = Symbol();
+ // let obj = {
+ //     [lj]:'梁娟'
+ // }
+ // console.log(obj[lj]);
+ // obj[lj]='太极员工'
+ // console.log(obj[lj]);
+
+ //Symbol对象元素的保护作用
+ // let obj ={name:'lj',skill:'web'};
+ // let age = Symbol();
+ // obj[age]=18;
+ // console.log(obj);
+ // for(let item in obj){
+ //     console.log(obj[item]);
+ // }
+ // console.log(obj[age]);
+
+ // set的声明
+ // let setArr = new Set(['lj','梁娟','web']);
+ // setArr.add('前端技术');
+ // console.log(setArr);
+ // // has查找set中的值
+ // console.log(setArr.has('lj'));
+ // Set值的增删改
+ // setArr.clear(); //删除全部
+ // // 删除一个
+ // setArr.delete('web');
+ // console.log(setArr);
+ // //循环输出
+ // // for...of
+ // for(let item of setArr){
+ //     console.log(item);
+ // }
+ // // forEach
+ // setArr.forEach((value)=>console.log(value));
+ // size属性  size属性可以获得Set值的数量。
+ // console.log(setArr.size);
+ //WeakSet的声明  这块有个坑，如果则会输出两遍obj的值
+ // let weakObj = new WeakSet();
+ // let obj={a:'lj',b:'梁娟'};
+ // // let obj1 = obj;
+ // let obj1={a:'B',b:'梁娟'};
+ // weakObj.add(obj);
+ // weakObj.add(obj1);
+ // console.log(weakObj);
+
+ //map数据类型
+ // json(反应速度低于数组和map结构的)
+ // let json={
+ //     name:'lj',
+ //     skill:'web'
+ // };
+ // // console.log(json.name);
+ // // =>（指向类型）
+ // var map = new Map();
+ // // map.set(json,'I am');
+ // // console.log(map);
+ // map.set('lj',json);
+ // console.log(map);
+ //map增删查
+ //get 取值
+ // console.log(map.get('lj'));
+ // delete 删除特定的值
+ // map.delete(json);
+ // console.log(map);
+ // clear 删除全部的值
+ // map.clear();
+ //size
+ // console.log(map.size);
+ //has
+ // console.log(map.has('lj'));
+
+ //proxy 代理 ES6 增强 对象和函数(方法) 生命周期 预处理
+
+ // let obj = {
+ //     add:function(val){
+ //         return val+100
+ //     },
+ //     name:'I am lj'
+ // }
+ // console.log(obj.add(100));
+ // console.log(obj.name);
+ //
+ // var pro = new Proxy({
+ //     add:function(val){
+ //         return val+100
+ //     },
+ //     name:'I am lj'
+ // }, {
+ //    get
+ //     get: function (target, key, property) {
+ //         console.log('come in Get');
+ //         return target[key];
+ //     },
+ // });
+ // console.log(pro.name);
+ //    // set
+ //     set:function(target,key,value,recriver){
+ //         console.log(` setting ${key} = ${value}`);
+ //         return target[key] = value+'222';
+ //     }
+ // });
+ // console.log(pro.name);
+ // pro.name = '梁娟'
+ // console.log(pro.name);
+
+ //apply的使用
+ // let target = function(){
+ //     return 'I am lj';
+ // }
+ // let handler={
+ //     apply(target,ctx,args){
+ //         console.log('do apply');
+ //         return Reflect.apply(...arguments);
+ //     }
+ // }
+ // let pro = new Proxy(target,handler);
+ // console.log(pro());
+
+ //promise
+ //promise es5 回调地狱
+ //
+ // let state = 1;
+ // function step1(resolve,reject){
+ //     console.log('1.开始-洗菜做饭');
+ //     if(state==1){
+ //         resolve('洗菜做饭完成')
+ //     }else{
+ //         reject('洗菜做饭-错误')
+ //     }
+ // // }
+ // function step2(resolve,reject){
+ //     console.log('2.开始-坐下来吃饭');
+ //     if(state==1){
+ //         resolve('坐下来吃饭')
+ //     }else{
+ //         reject('坐下来吃饭-错误')
+ //     }
+ // }
+ // function step3(resolve,reject){
+ //     state = 0;
+ //     console.log('3.开始-收拾桌子');
+ //     if(state==1){
+ //         resolve('收拾桌子')
+ //     }else{
+ //         reject('收拾桌子-错误')
+ //     }
+ // }
+ //ES6的写法
+ // new Promise(step1).then(function(val){
+ //     console.log(val);
+ //     return new Promise(step2);
+ // }).then(function(val){
+ //     console.log(val);
+ //     return new Promise(step3);
+ // }).then(function(val){
+ //     console.log(val);
+ // });
+
+ // var p1 = new Promise((resolve, reject) => {
+ //     setTimeout(() => resolve('p1'), 1000);
+ // });
+ // p1.then( ret => {
+ //     console.log(ret); //p1
+ //     return'then1';
+ // }).then( ret => {
+ //     console.log(ret); //then1
+ //     return'then2';
+ // }).then( ret => {
+ //     console.log(ret); //then2
+ // });
+
+ // class 类
+ //类的声明
+ // class Coder {
+ //     name(val) {
+ //         console.log(val);
+ //         return val;
+ //     }
+ // // }
+ //
+ // // let lj = new Coder;
+ // // lj.name('梁娟');
+ //     skill(val){
+ //         console.log(this.name('梁娟')+':'+'skill-'+val);
+ //     }
+ // //     // 类的传参
+ //     constructor(a,b){
+ //         this.a = a;
+ //         this.b = b;
+ //     }
+ //     add(){
+ //         return this.a + this.b;
+ //     }
+ // }
+ // let lj = new Coder(1,2);
+ // lj.name('梁娟');
+ // lj.skill('web');
+ // console.log(lj.add())
+ //
+ // //类的继承
+ // class htmler extends Coder{
+ //
+ // }
+ // let ljDev = new htmler;
+ // ljDev.name('梁娟');
+
+ // 模块化
+ // import 引入  export 输出
